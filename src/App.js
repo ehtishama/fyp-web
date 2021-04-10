@@ -1,8 +1,8 @@
 import firebase from "firebase/app";
 import "boxicons";
 import "firebase/auth";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
+import Home from "./views/Home";
+import Login from "./views/Login";
 import {
     BrowserRouter as Router,
     Switch,
@@ -10,8 +10,10 @@ import {
     Link,
     Redirect,
 } from "react-router-dom";
-import { useState } from "react";
-import Receipts from "./pages/Receipts";
+import React, {useState} from "react";
+import Receipts from "./views/Receipts";
+import NewUserForm from "./components/NewUserForm";
+import ReceiptDetails from "./views/ReceiptDetails";
 
 function App() {
     initFirebase();
@@ -25,17 +27,33 @@ function App() {
         <>
             <Switch>
                 <Route path="/home">
-                    <Home user={user} />
+                    <Home user={user}>
+                        <NewUserForm/>
+                    </Home>
                 </Route>
+
+                <Route path="/new-user">
+                    <Home user={user}>
+                        <NewUserForm/>
+                    </Home>
+                </Route>
+
                 <Route path="/login">
-                    <Login user={user} />
+                    <Login user={user}/>
                 </Route>
+
                 <Route path={"/receipts"}>
-                    <Receipts />
+                    <Receipts/>
                 </Route>
+
+                <Route path={'/receipt'}>
+                    <ReceiptDetails />
+                </Route>
+
                 <Route path="/">
-                    <Home user={user} />
+                    <Home user={user}/>
                 </Route>
+
             </Switch>
         </>
     );
@@ -56,6 +74,8 @@ function initFirebase() {
     };
 
     if (firebase.apps.length > 0) return;
+
     else firebase.initializeApp(firebaseConfig);
 }
+
 export default App;
