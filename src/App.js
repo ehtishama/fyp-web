@@ -27,15 +27,14 @@ function App() {
         <>
             <Switch>
                 <Route path="/home">
+
                     <Home user={user}>
                         <NewUserForm/>
                     </Home>
                 </Route>
 
                 <Route path="/new-user">
-                    <Home user={user}>
-                        <NewUserForm/>
-                    </Home>
+                    <NewUserForm/>
                 </Route>
 
                 <Route path="/login">
@@ -46,8 +45,8 @@ function App() {
                     <Receipts/>
                 </Route>
 
-                <Route path={'/receipt'}>
-                    <ReceiptDetails />
+                <Route name="receipt_details" path={'/receipt_details/:receipt_id'}>
+                    <ReceiptDetails/>
                 </Route>
 
                 <Route path="/">

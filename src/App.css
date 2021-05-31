@@ -55,8 +55,7 @@ html, body, #root {
     height: 362px;
 }
 
-.card_receipt .receipt_img
-{
+.card_receipt .receipt_img {
     width: 241px;
     height: 247px;
     margin-top: 8px;
@@ -67,27 +66,43 @@ html, body, #root {
     font-size: 10px;
 }
 
-.bg-primary
-{
+.bg-primary {
     background-color: var(--primaryColor);
 }
 
-.bg-secondary
-{
+.bg-secondary {
     background-color: var(--secondaryColor);
 }
 
-.bg-success
-{
+.bg-success {
     background-color: #0BBFA1;
 }
 
-.bg-danger
-{
+.bg-danger {
     background-color: #F900A6;
 
 }
 
 .p-0_5 {
     padding: 1px;
+}
+
+.centerInDiv {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    display: inline-block;
+    text-align: center;
+    transform: translate(-50%, -50%);
+
+}
+
+.receiptWrapper:hover .receiptOverlay {
+    opacity: 0.6;
+}
+
+
+.receiptWrapper:hover .centerInDiv {
+    opacity: 1;
 }

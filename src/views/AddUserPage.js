@@ -16,7 +16,7 @@ export function isEmpty(str) {
     else return false
 }
 
-export default function Home(props) {
+export default function AddUserPage(props) {
     const isLoggedIn = props.user != null;
     const database = firebase.database()
 

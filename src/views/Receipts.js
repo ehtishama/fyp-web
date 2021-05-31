@@ -12,15 +12,11 @@ export default function Receipts() {
 
     useEffect(() => {
 
-        database.ref("/").once("value", (snapshost) => {
+        database.ref("/receipts")
+            .once("value", (snapshost) => {
             const _receipts = []
-
-            snapshost.forEach(node => {
-                const singleUserReceipts = node.child("receipts")
-                singleUserReceipts.forEach(receipt => {
-                    _receipts.push(receipt.val())
-                    console.log(receipt.val())
-                })
+            snapshost.forEach(receipt => {
+                _receipts.push(receipt.val())
             })
             setReceipts([...receipts, ..._receipts])
 
